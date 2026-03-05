@@ -1,7 +1,6 @@
 #treainig data sets
 X=[1,2,3,4,5]
 Y=[1.2,1.9,3.0,3.9,5.1]
-
 #global variables
 theta=[0,0]#for bias and one feature
 m=len(X)
@@ -38,7 +37,7 @@ def gradientD():
 #treainig start for 1000 iteration
 for i in range(1000):
     gradientD()
-    if((i%100)==0):
+    if(((i+1)%100)==0):
         mse=MSE()
         print("mean squared error is :",mse)
     
