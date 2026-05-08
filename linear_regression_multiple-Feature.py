@@ -1,13 +1,14 @@
 #training data set 
 X = [
-    [1, 1, 10],
-    [1, 2, 20],
-    [1, 3, 30],
-    [1, 4, 40],
-    [1, 5, 50]
+    [3.75, 9.51, 7.32], [5.99, 1.56, 1.56], [0.58, 8.66, 6.01], 
+    [7.08, 0.21, 9.7], [8.32, 2.12, 1.82], [1.83, 3.04, 5.25], 
+    [4.32, 2.91, 6.12], [1.39, 2.92, 3.66], [4.56, 7.85, 2.0], 
+    [5.14, 5.92, 0.46]
 ]
 
-Y = [1.2, 1.9, 3.0, 3.9, 5.1]
+
+y = [15.07, 15.7, 7.98, 47.86, 18.01, 20.89, 26.07, 12.0, 2.96, 0.26]
+
 
 m=len(X)#number of training example
 n=len(X[0])#number of featurs
@@ -41,8 +42,12 @@ def bgd():
     for i in range (n):
         partial=0
         for j in range (m):
-            partial=(hypothesis(X[j])-Y[j])*X[j][i]
-            
+            partial+=(hypothesis(X[j])-Y[j])*X[j][i]
+        error=(partial/m)*learningrate
+        temp_theta[i]-=error
+    theta=temp_theta
+
+
 
 
 
