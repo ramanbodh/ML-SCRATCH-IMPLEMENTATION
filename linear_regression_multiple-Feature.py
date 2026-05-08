@@ -13,6 +13,7 @@ m=len(X)#number of training example
 n=len(X[0])#number of featurs
 
 theta=[0]*n
+learningrate=0.05
 
 #hypothesis function
 def hypothesis(x):
@@ -29,9 +30,20 @@ def hypothesis(x):
 def cost_function():
     er=0
     for i in range (m):
-        error=0
-        error=hypothesis(i)-Y[i]
-        er+=error**2
-    msr=er/m*2
-    return msr
-    
+        er+=hypothesis(i)-Y[i]
+        er=er**2
+    msr=er/(m*2)
+
+#graident descent (batch)
+def bgd():
+    global theta
+    temp_theta=theta.copy()
+    for i in range (n):
+        partial=0
+        for j in range (m):
+            partial=(hypothesis(X[j])-Y[j])*X[j][i]
+            
+
+
+
+
